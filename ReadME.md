@@ -1,10 +1,8 @@
-App is Running on localhost:1000
+App is Running on localhost:3000
 
--------------------------------7th April--------------------------------------------------------------------------------------------------
-Routing needs to be done
+>npm install - to install all dependencies 
 
-Component, Actions, Reducers, Mapping initial structure is done
+>npm start - to start the server and project in localhost:3000
 
-MainScript is having App calling MainComponent
 
 -----------------------------------------------------------------------------------------------------------------------------------------
