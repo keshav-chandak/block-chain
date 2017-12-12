@@ -1,4 +1,8 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import ThemeDefault from '../../theme-default';
+
+import Header from '../Header';
 
 class Main extends React.Component {
 
@@ -19,9 +23,15 @@ class Main extends React.Component {
         console.log("asd",this.props);
         
         return (
-            <div>
-                <button onClick={this.click.bind(this)}>click here{this.props.likes}!!!</button>
-            </div>)
+            <MuiThemeProvider muiTheme={ThemeDefault}>
+                <div>
+                    <button onClick={this.click.bind(this)}>click here{this.props.likes}!!!</button>                        
+                    <Header/>
+                    <div className="block-container">
+                        {React.cloneElement(this.props.children,this.props)}
+                    </div>
+                </div>
+            </MuiThemeProvider>)
     }
 };
 

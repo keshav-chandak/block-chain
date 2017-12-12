@@ -44,7 +44,13 @@ module.exports = {
           'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
           'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
-      }
+      },
+      //scss
+      {
+        test: /\.scss$/,
+        include: path.join(__dirname, 'client'),
+        loader: 'style-loader!css-loader!sass-loader'
+      },
     ]
   }
 };
