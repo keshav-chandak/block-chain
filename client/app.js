@@ -7,6 +7,7 @@ import App from "./components/App/AppList";
 import Main from "./components/App/Main.Component";
 import store from "./store/configStore";
 import PPTDashboard from "./containers/PPTDashboard";
+import Login from "./containers/Login";
 
 import './styles.scss';
 
@@ -18,8 +19,8 @@ var router = (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={PPTDashboard}>
-        </IndexRoute>
+        <IndexRoute component={Login}/>
+        <Route path="/PPTDashboard" component={PPTDashboard}/>
      </Route>
    </Router>
   </Provider>
