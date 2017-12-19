@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import { likes, incrementLikes } from './reducers';//all reducers to merge into combineReducer
+import { likes, incrementLikes,chains } from './reducers';//all reducers to merge into combineReducer
 
 var rootReducer = combineReducers({ 
-    incrementLikes
+    incrementLikes,
+    chains
 });
 
 export default rootReducer;

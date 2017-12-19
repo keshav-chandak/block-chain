@@ -11,3 +11,13 @@ export function incrementLikes(state=[],action){
                             
     }
 }
+
+export function chains(state=[],action){
+    switch(action.type){
+        case 'CHAIN_FETCH_DATA_SUCCESS':
+            return action.chain;
+    
+        default: return state;
+    
+    }
+}
