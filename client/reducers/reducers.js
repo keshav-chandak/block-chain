@@ -32,6 +32,16 @@ export function openModal(state=false,action){
     }
 }
 
+export function openId(state=false,action){
+    switch(action.type){
+        case 'OPEN_ID_MODAL':
+            return action.openIdModal;
+    
+        default: return state;
+    
+    }
+}
+
 export function transfer(state=[],action){
     switch(action.type){
         case 'TRANSFER_SUCCESS':

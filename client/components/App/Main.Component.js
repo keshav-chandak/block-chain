@@ -28,6 +28,15 @@ class Main extends React.Component {
 
     handleData(data){
         console.log(data);
+        let msg = '';
+        for (let i = 0; i < data.length; i++) {
+          if (i >= 3)
+            msg += data[i];
+          if (data[i] == "}" && data[i + 1] != "}")
+            break;
+        }
+        console.log(msg);
+
     }
 
     render() {
@@ -36,7 +45,6 @@ class Main extends React.Component {
             <div>
                 <MuiThemeProvider muiTheme={ThemeDefault}>
                     <div>
-                        <button onClick={this.click.bind(this)}>click here{this.props.likes}!!!</button>                        
                         <Header/>
                         <div className="block-container">
                             {React.cloneElement(this.props.children,this.props)}

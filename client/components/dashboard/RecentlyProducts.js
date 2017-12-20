@@ -24,10 +24,10 @@ class OrderDetails extends React.Component {
       zDepth: 1
     }
     let data = [];
-    if (typeof this.props.data.chain !== 'undefined' && this.props.data.chain.length > 0) {
-      data = this.props.data.chain.slice(0, 4);
+    if (typeof this.props.data !== 'undefined' && this.props.data.length > 0) {
+      data = this.props.data.slice(0, 4);
     }
-    console.log(data);
+    console.log(data,this.props);
     const styles = {
       subheader: {
         fontSize: 24,
@@ -60,7 +60,7 @@ class OrderDetails extends React.Component {
               <div key={item.index}>
                 <ListItem
                   leftAvatar={<Avatar icon={<Wallpaper />} />}
-                  primaryText={item.index}
+                  primaryText={"$"+item.amount+"     Transfered from "+item.fromFund+" To "+ item.toFund}
                   secondaryText={item.timestamp}
                   rightIconButton={rightIconMenu}
                 />

@@ -14,6 +14,13 @@ export function openModal(bool) {
     };
 }
 
+export function openId(bool) {
+    return {
+        type: 'OPEN_ID_MODAL',
+        openIdModal: bool
+    };
+}
+
 export function transferFund(url,from,to,amount,uniqueId){
     return (dispatch)=>{
         console.log(from,to,amount,uniqueId)
@@ -40,7 +47,7 @@ export function transferFund(url,from,to,amount,uniqueId){
 
 }
 
-export function chainDetails(url){
+export function chainDetails(url,uniqueId){
     return (dispatch)=>{
 
         dispatch(chainIsLoading(true));
@@ -48,7 +55,8 @@ export function chainDetails(url){
             url: url,
             timeout: 20000,
             method: 'get',
-            responseType: 'json'
+            responseType: 'json',
+            params:{uniqueID:uniqueId}
         })
             .then((response) => { return response.data; })
             .then((chain) => dispatch(chainFetchDataSuccess(chain)))

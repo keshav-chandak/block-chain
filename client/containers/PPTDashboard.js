@@ -13,6 +13,7 @@ import OrderDetails from '../components/dashboard/RecentlyProducts';
 import Data from '../data';
 
 import PopUpComponent from '../components/dashboard/PopUpComponent';
+import EnterId from '../components/dashboard/EnterId';
 
 import { Link } from 'react-router';
 
@@ -32,6 +33,8 @@ export default class DashboardPage extends React.Component {
   }
 
   refershOrders() {
+    this.props.openId(true);
+    
   }
   handleOpen() {
     this.props.openModal(true);
@@ -89,6 +92,7 @@ export default class DashboardPage extends React.Component {
               title="Delete"
             />
           </div>
+          <EnterId {...this.props}></EnterId>
 
           <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 animate" onClick={this.refershOrders.bind(this)} >
 
@@ -127,25 +131,6 @@ export default class DashboardPage extends React.Component {
           </div>
         </div>
 
-        <div className="transfer" >
-          <select className="From" ref="transferFrom">
-            <option value="From">From</option>
-            <option value="FundA">FundA</option>
-            <option value="FundB">FundB</option>
-          </select>
-
-          <select className="To" ref="transferTo">
-            <option value="To">To</option>
-            <option value="FundA">FundA</option>
-            <option value="FundB">FundB</option>
-          </select>
-
-          <input id="amount" type="number" placeholder="Enter Amount" ref="transferAmount" />
-
-          <input id="transfer" type="button" onClick={this.transfer.bind(this)} value="Tranfer" />
-
-          {validation}
-        </div>
       </div>
     );
   };
