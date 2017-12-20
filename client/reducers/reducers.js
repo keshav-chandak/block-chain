@@ -22,6 +22,16 @@ export function chains(state=[],action){
     }
 }
 
+export function openModal(state=false,action){
+    switch(action.type){
+        case 'OPEN_MODAL':
+            return action.open;
+    
+        default: return state;
+    
+    }
+}
+
 export function transfer(state=[],action){
     switch(action.type){
         case 'TRANSFER_SUCCESS':

@@ -7,9 +7,16 @@ export function incrementLikes(likes) {
     };
 }
 
-export function transferFund(url,from,to,amount){
+export function openModal(bool) {
+    return {
+        type: 'OPEN_MODAL',
+        open: bool
+    };
+}
+
+export function transferFund(url,from,to,amount,uniqueId){
     return (dispatch)=>{
-        console.log(from,to,amount)
+        console.log(from,to,amount,uniqueId)
         dispatch(chainIsLoading(true));
         return axios({
             url: url,
@@ -19,7 +26,8 @@ export function transferFund(url,from,to,amount){
             data: {
                 from,
                 to,
-                amount
+                amount,
+                uniqueId
               }
         })
             .then((response) => { return response.data; })

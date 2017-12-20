@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { likes, incrementLikes,chains ,transfer } from './reducers';//all reducers to merge into combineReducer
+import { likes, incrementLikes,chains ,transfer ,openModal } from './reducers';//all reducers to merge into combineReducer
 
 var rootReducer = combineReducers({ 
     incrementLikes,
     chains,
-    transfer
+    transfer,
+    openModal
 });
 
 export default rootReducer;

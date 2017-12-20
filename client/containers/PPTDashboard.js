@@ -12,6 +12,8 @@ import BrowserUsage from '../components/dashboard/BrowserUsage';
 import OrderDetails from '../components/dashboard/RecentlyProducts';
 import Data from '../data';
 
+import PopUpComponent from '../components/dashboard/PopUpComponent';
+
 import { Link } from 'react-router';
 
 export default class DashboardPage extends React.Component {
@@ -20,7 +22,7 @@ export default class DashboardPage extends React.Component {
     super(props);
 
     this.state = {
-      test: false
+      test: false,
     }
   }
 
@@ -32,6 +34,7 @@ export default class DashboardPage extends React.Component {
   refershOrders() {
   }
   handleOpen() {
+    this.props.openModal(true);
   };
 
   dialogueOpen() {
@@ -70,13 +73,15 @@ export default class DashboardPage extends React.Component {
         <div className="row">
 
 
-          <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 animate" >
+          <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 animate" onClick={this.handleOpen.bind(this)}>
 
             <InfoBox Icon={NoteAdd}
               color={pink600}
-              title="Create Trades"
+              title="Transact Funds"
             />
           </div>
+
+          <PopUpComponent {...this.props }></PopUpComponent>
 
           <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-b-15 animate" onClick={this.deleteAllOrders.bind(this)} >
             <InfoBox Icon={Delete} {...this.props}
@@ -114,7 +119,7 @@ export default class DashboardPage extends React.Component {
 
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">
-            <OrderDetails data={Data.dashBoardPage.recentProducts} />
+            <OrderDetails data={this.props.chain} />
           </div>
 
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-b-15 ">

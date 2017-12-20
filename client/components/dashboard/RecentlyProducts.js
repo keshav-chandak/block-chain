@@ -24,9 +24,10 @@ class OrderDetails extends React.Component {
       zDepth: 1
     }
     let data = [];
-    if (typeof this.props.items !== 'undefined' && this.props.items.length > 0) {
-      data = this.props.items.slice(0, 4);
+    if (typeof this.props.data.chain !== 'undefined' && this.props.data.chain.length > 0) {
+      data = this.props.data.chain.slice(0, 4);
     }
+    console.log(data);
     const styles = {
       subheader: {
         fontSize: 24,
@@ -53,14 +54,14 @@ class OrderDetails extends React.Component {
     return (
       <Paper settings={paperSettings}>
         <List>
-          <Subheader style={styles.subheader}>Order Details</Subheader>
+          <Subheader style={styles.subheader}>Recent Transfer Details</Subheader>
           {
             data.map(item =>
-              <div key={item.title}>
+              <div key={item.index}>
                 <ListItem
                   leftAvatar={<Avatar icon={<Wallpaper />} />}
-                  primaryText={item.symbol}
-                  secondaryText={item.quantity}
+                  primaryText={item.index}
+                  secondaryText={item.timestamp}
                   rightIconButton={rightIconMenu}
                 />
                 <Divider inset={true} />
