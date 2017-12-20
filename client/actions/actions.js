@@ -7,6 +7,31 @@ export function incrementLikes(likes) {
     };
 }
 
+export function transferFund(url,from,to,amount){
+    return (dispatch)=>{
+
+        dispatch(chainIsLoading(true));
+        return axios({
+            url: url,
+            timeout: 20000,
+            method: 'post',
+            responseType: 'json',
+            data: {
+                from,
+                to,
+                amount
+              }
+        })
+            .then((response) => { return response.data; })
+            .then((chain) => dispatch(transferSuccess(chain)))
+            .catch((err) => {
+                dispatch(transferError(true))
+                console.log(err.message)
+            });
+    };
+
+}
+
 export function chainDetails(url){
     return (dispatch)=>{
 
@@ -25,6 +50,20 @@ export function chainDetails(url){
             });
     };
 
+}
+
+export function transferSuccess(chain){
+    return {
+        type: 'TRANSFER_SUCCESS',
+        chain
+    };
+}
+
+export function transferError(bool){
+    return {
+        type: 'TRANSFER_ERROR',
+        bool
+    };
 }
 
 export function chainFetchDataSuccess(chain) {

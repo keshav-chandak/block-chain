@@ -21,3 +21,14 @@ export function chains(state=[],action){
     
     }
 }
+
+export function transfer(state=[],action){
+    switch(action.type){
+        case 'TRANSFER_SUCCESS':
+        console.log("success");
+            return action.chain;
+    
+        default: return state;
+    
+    }
+}

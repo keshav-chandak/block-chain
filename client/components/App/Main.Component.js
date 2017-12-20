@@ -43,7 +43,7 @@ class Main extends React.Component {
                         </div>
                     </div>
                 </MuiThemeProvider>
-                <Websocket url={"ws://localhost:3001"}
+                <Websocket url="ws://localhost:3001/socket.io/?transport=websocket"
                 onMessage={this.handleData.bind(this)} />
             </div>)
     }

@@ -3,7 +3,7 @@ const express = require("express");
 
 const app = express();
 
-server =require('http').createServer(app);
+server =require('http').Server(app);
 var io = require("socket.io")(server);
 
 
@@ -106,11 +106,10 @@ app.get('/add',function(req,res){
 
 
 app.get('/', function(req, res) {
-  res.sendfile('app/index.html');
+  res.end('<h1>Hello Socket Lover!</h1>');
 });
 
 
-app.listen(3001,()=> console.log("on port 3001!!"));
 
 //socket io setup
 io.on('connection', function(socket) {
@@ -120,6 +119,9 @@ io.on('connection', function(socket) {
       console.log(socket.id + ' disconnected');
   });
 });
+
+server.listen(3001,()=> console.log("on port 3001!!"));
+
 
 // io.broadcast = function(event, message) {
 //   'use strict';
