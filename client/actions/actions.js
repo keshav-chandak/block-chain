@@ -9,7 +9,7 @@ export function incrementLikes(likes) {
 
 export function transferFund(url,from,to,amount){
     return (dispatch)=>{
-
+        console.log(from,to,amount)
         dispatch(chainIsLoading(true));
         return axios({
             url: url,
